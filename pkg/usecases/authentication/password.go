@@ -35,6 +35,7 @@ func (u *ROPC) Do(ctx context.Context, in *ROPCOption, client oidcclient.Interfa
 	if err != nil {
 		return nil, xerrors.Errorf("resource owner password credentials flow error: %w", err)
 	}
+	u.Logger.V(1).Infof("resource owner password credentials flow completed")
 	return &Output{
 		IDToken:       tokenSet.IDToken,
 		IDTokenClaims: tokenSet.IDTokenClaims,
